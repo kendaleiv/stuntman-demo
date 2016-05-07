@@ -20,7 +20,11 @@ namespace StuntmanDemo.Mvc
 
                 .AddUser(new StuntmanUser("administrator-1", "Administrator 1")
                     .AddClaim(System.Security.Claims.ClaimTypes.Role, "Employee")
-                    .AddClaim(System.Security.Claims.ClaimTypes.Role, "Administrator"));
+                    .AddClaim(System.Security.Claims.ClaimTypes.Role, "Administrator"))
+
+                .AddUser(new StuntmanUser("api-user-1", "Api User 1")
+                    .AddClaim(System.Security.Claims.ClaimTypes.Role, "Administrator")
+                    .SetAccessToken("abc123"));
 
             if (System.Web.HttpContext.Current.IsDebuggingEnabled)
             {

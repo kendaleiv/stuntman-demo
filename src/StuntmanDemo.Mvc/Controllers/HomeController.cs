@@ -18,5 +18,15 @@ namespace StuntmanDemo.Mvc.Controllers
 
             return View();
         }
+
+        public ActionResult ApiEndpoint()
+        {
+            if (!User.Identity.IsAuthenticated || !User.IsInRole("Administrator"))
+            {
+                return new HttpUnauthorizedResult();
+            }
+
+            return Json(new { Data = "some_data" }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
