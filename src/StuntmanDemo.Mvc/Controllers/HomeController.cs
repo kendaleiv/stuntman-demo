@@ -11,14 +11,12 @@ namespace StuntmanDemo.Mvc.Controllers
 
         public ActionResult Secure()
         {
-            if (User.Identity.IsAuthenticated == true)
-            {
-                return View();
-            }
-            else
+            if (!User.Identity.IsAuthenticated)
             {
                 return new HttpUnauthorizedResult();
             }
+
+            return View();
         }
     }
 }
