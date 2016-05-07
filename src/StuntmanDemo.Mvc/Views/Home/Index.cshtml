@@ -1,0 +1,22 @@
+﻿<h1>
+    Welcome <span class="user-display">@User.Identity.Name</span>!
+</h1>
+
+<table class="roles-table">
+    <thead>
+        <tr>
+            <th>Role</th>
+            <th class="code">@Html.Raw("@User.IsInRole(\"...\")")</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Employee</td>
+            <td class="code">@User.IsInRole("Employee")</td>
+        </tr>
+        <tr>
+            <td>Administrator</td>
+            <td class="code">@User.IsInRole("Administrator")</td>
+        </tr>
+    </tbody>
+</table>

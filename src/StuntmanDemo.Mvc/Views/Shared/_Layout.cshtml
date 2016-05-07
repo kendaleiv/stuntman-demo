@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .code {
+            font-family: monospace;
+        }
+
+        .container {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            width: 900px;
+        }
+
+        .roles-table {
+            border-collapse: collapse;
+            font-size: 22px;
+            margin: auto;
+            padding: 0;
+        }
+
+        .roles-table th {
+            background-color: #eee;
+        }
+
+        .roles-table th, .roles-table td {
+            padding: 20px 20px 20px 10px;
+            border: 1px solid black;
+        }
+
+        .user-display {
+            background-color: rgba(238, 238, 238, .5);
+            font-weight: bold;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        @Html.Raw(Startup.StuntmanOptions.UserPicker(User))
+    }
+</body>
+</html>
