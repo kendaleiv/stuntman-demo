@@ -13,8 +13,6 @@ namespace StuntmanDemo.Mvc
         public void Configuration(IAppBuilder app)
         {
             StuntmanOptions
-                .AddUser(new StuntmanUser("anonymous-1", "Anonymous"))
-
                 .AddUser(new StuntmanUser("employee-1", "Employee 1")
                     .AddClaim(System.Security.Claims.ClaimTypes.Role, "Employee"))
 
